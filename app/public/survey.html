@@ -126,6 +126,23 @@
         
         console.log(newUser);
 
+        $.post("/api/friends", newUser,
+          function(data) {
+
+            // If a table is available... tell user they are booked.
+            if (data) {
+              alert("Yay! You are officially booked!");
+            }
+
+            // If a table is available... tell user they on the waiting list.
+            else {
+              alert("Sorry you are on the wait list");
+            }
+
+
+          });
+
+
       });
 
       
