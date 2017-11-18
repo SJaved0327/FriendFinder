@@ -37,7 +37,7 @@
 
       <!-- Footer + Done Button -->
       <footer>
-        <button type="button" id="doneButton" class="btn btn-secondary btn-lg">Done!
+        <button type="button" id="submit" class="btn btn-secondary btn-lg">Submit!
         </button>
       </footer>
 
@@ -71,11 +71,11 @@
           var adder = i+1;
 
             input += "Strongly Disagree"+" ";
-            input += `<input type="radio" name="question${adder}" data-value="1"> 1`+" ";
-            input += `<input type="radio" name="question${adder}" data-value="2"> 2`+" ";
-            input += `<input type="radio" name="question${adder}" data-value="3"> 3`+" ";            
-            input += `<input type="radio" name="question${adder}" data-value="4"> 4`+" ";
-            input += `<input type="radio" name="question${adder}" data-value="5"> 5`+" ";  
+            input += `<input type="radio" name="question${adder}" value="1"> 1`+" ";
+            input += `<input type="radio" name="question${adder}" value="2"> 2`+" ";
+            input += `<input type="radio" name="question${adder}" value="3"> 3`+" ";            
+            input += `<input type="radio" name="question${adder}" value="4"> 4`+" ";
+            input += `<input type="radio" name="question${adder}" value="5"> 5`+" ";  
             input += " "+"Strongly Agree";
 
         //create and append card head for each quesiton
@@ -96,17 +96,39 @@
 
       };
 
-
-
       window.onload = function(){
 
         renderQuestions();
 
       };
 
+      $("#submit").on("click", function(event) {
+          
+          event.preventDefault();
 
+          // Here we grab the form elements
+          var newUser = {
+            Name: $("#name").val().trim(),
+            Photo: $("#photo").val().trim(),
+            Answers: [
+              document.questionDiv.question1.value,
+              document.questionDiv.question2.value,
+              document.questionDiv.question3.value,
+              document.questionDiv.question4.value,
+              document.questionDiv.question5.value,
+              document.questionDiv.question6.value,
+              document.questionDiv.question7.value,
+              document.questionDiv.question8.value,
+              document.questionDiv.question9.value,
+              document.questionDiv.question10.value
+            ]
+          };
+        
+        console.log(newUser);
 
+      });
 
+      
 
     </script>
   </body>
