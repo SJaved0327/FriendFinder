@@ -1,9 +1,4 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================
-
+//grab data from current friendsArray
 var friendsArray = require("../data/friends");
 
 
@@ -12,12 +7,8 @@ var friendsArray = require("../data/friends");
 // ===============================================================================
 
 module.exports = function(app) {
-  // API GET Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // ---------------------------------------------------------------------------
-
+  //what to post when visiting friends page
+  //show current data being stored
   app.get("/api/friends", function(req, res) {
     res.json(friendsArray);
   });
@@ -34,12 +25,34 @@ module.exports = function(app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body-parser middleware
-      console.log(req.body);
+      console.log(req.body.Answers);
+      
+      var userAnswers = req.body.Answers;
+      var num;
+      var userArray = [];
+
+      for (var i = 0; i < userAnswers; i++){
+        num = parseInt(userAnswers[i]);
+        userArray.push(num);
+      }
+
+      for (var i = 0; i<friendsArray.length; i++){
+       
+
+
+
+        var Maybe = friendsArray[i].Answers;
+        Maybe
+
+
+      };
 
 
       friendsArray.push(req.body);
 
-      res.json(true);
+
+      var match = "susan";
+      res.json(match);
 
   });
 

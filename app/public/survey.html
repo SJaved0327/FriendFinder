@@ -130,16 +130,32 @@
           console.log(newUser);
 
         $.post("/api/friends", newUser,
-          function(data) {
+          function(match) {
 
             // If a table is available... tell user they are booked.
-            if (data) {
-              alert("Yay! You are officially booked!");
+            if (match) {
+              $(`#questionDiv`).empty();
+              var input ="";
+
+              input += "<img>";
+              input += `<p>Name: ${match.Name}</p>;`;
+              input += `<p>Name: ${match.Answers}</p>;`;            
+
+              var cardHead = $(`<div>`);
+              cardHead.addClass(`card-header`);
+              cardHead.html(`<strong>Your Match Is:</strong>`);
+              $(`#questionDiv`).append(cardHead);
+
+              //create and append card body for each question
+              var cardBody = $(`<div>`);
+              cardBody.addClass(`card-body`);
+              cardBody.html(input);
+              $(`#questionDiv`).append(cardBody);
             }
 
             // If a table is available... tell user they on the waiting list.
             else {
-              alert("Sorry you are on the wait list");
+              alert("Sorry");
             }
 
 
