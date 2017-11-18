@@ -2,6 +2,7 @@
 var friendsArray = require("../data/friends");
 
 
+
 // ===============================================================================
 // ROUTING
 // ===============================================================================
@@ -22,43 +23,69 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.post("/api/friends", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body-parser middleware
+
       console.log(req.body.Answers);
-      
+
+      //grab all the answers input by user
       var userAnswers = req.body.Answers;
-      var num;
-      var userArray = [];
 
-      for (var i = 0; i < userAnswers; i++){
-        num = parseInt(userAnswers[i]);
-        userArray.push(num);
-      }
+      var userNum;
+      var friendNum;
+      //score used to match start at 0
+      var score = 0; 
+      //count starts at 0
+      var count = 0;
+      //cycle through all the friends
+      if (count < friendsArray.length){
+        
+        var friendAnswers = friendsArray[count].Answers;
 
-      for (var i = 0; i<friendsArray.length; i++){
-       
+        for (var i = 0; i < 10; i++){
+          
+          userNum = parseInt(userAnswers[i]);
+          friendNum = parseInt(friendAnswers[i]);
+          score += Math.abs(userNum - friendNum);
 
+        }
 
+        console.log(score);
 
-        var Maybe = friendsArray[i].Answers;
-        Maybe
+        count++;
 
-
+      }else{
+        console.log("done");
       };
 
 
       friendsArray.push(req.body);
-
 
       var match = "susan";
       res.json(match);
 
   });
 
+
+
+
 };
 
+// ===============================================================================
+// FUNCTIONS
+// ===============================================================================
 
+//constructor
+var Friend = (name, answers, score) => {
+        this.Name = name;
+        this.Answers = answers;
+        this.Score = score;
+      };
 
+function compareArrays (){
+  
 
-
+  for (var i = 0; i < this.actualWord.length; i++){
+        if(this.actualWord.charAt(i) != this.displayArray[i]){
+          return false;
+        }
+      }
+}
