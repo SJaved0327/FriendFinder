@@ -4,15 +4,15 @@ const path = require(`path`);
 
 var app = express();
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // ================================================================================
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+//require("./app/routing/apiRoutes")(app);
+//require("./app.routing/htmlRoutes")(app);
 
 // =============================================================================
 

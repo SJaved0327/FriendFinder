@@ -33,7 +33,7 @@
         <br>
 
       </form>
-
+      
 
       <!-- Footer + Done Button -->
       <footer>
@@ -49,33 +49,17 @@
     <!-- JavaScript -->
   	<script type="text/javascript">
       var questions = 
-        [{
-          Question: `Your mind is always buzzing with unexplored ideas and plans.`
-        },
-        {
-          Question: `Generally speaking, you rely more on your experience than your imagination.`
-        },
-        {
-          Question: `You find it easy to stay relaxed and focused even when there is some pressure.`
-        },
-        {
-          Question: `You rarely do something just out of sheer curiosity.`
-        },
-        {
-          Question: `People can rarely upset you.`
-        },
-        {
-          Question: `In a discussion, truth should be more important than people’s sensitivities.`
-        },
-        {
-          Question: `You rarely get carried away by fantasies and ideas.`
-        },
-        {
-          Question: `You think that everyone’s views should be respected regardless of whether they are supported by facts or not.`
-        },
-        {
-          Question: `You feel more energetic after spending time with a group of people.`
-        }];
+        [`Your mind is always buzzing with unexplored ideas and plans.`,
+        `Generally speaking, you rely more on your experience than your imagination.`,
+        `You find it easy to stay relaxed and focused even when there is some pressure.`,
+        `You rarely do something just out of sheer curiosity.`,
+        `People can rarely upset you.`,
+        `It is often difficult for you to relate to other people’s feelings.`,
+        `In a discussion, truth should be more important than people’s sensitivities.`,
+        `You rarely get carried away by fantasies and ideas.`,
+        `You think that everyone’s views should be respected regardless of whether they are supported by facts or not.`,
+        `You feel more energetic after spending time with a group of people.`
+        ];
 
       //create headers for survey questions
       function renderQuestions(){
@@ -86,22 +70,19 @@
           
           var adder = i+1;
 
-            input += `<input type="radio" name="question${adder}" data-value="1"> 1 Strongly Disagree`;
-            input += `<br>`;
-            input += `<input type="radio" name="question${adder}" data-value="2"> 2`;
-            input += `<br>`;
-            input += `<input type="radio" name="question${adder}" data-value="3"> 3`;
-            input += `<br>`;
-            input += `<input type="radio" name="question${adder}" data-value="4"> 4`;
-            input += `<br>`;
-            input += `<input type="radio" name="question${adder}" data-value="5"> 5  Strongly Agree`;
-            input += `<br>`;
+            input += "Strongly Disagree"+" ";
+            input += `<input type="radio" name="question${adder}" data-value="1"> 1`+" ";
+            input += `<input type="radio" name="question${adder}" data-value="2"> 2`+" ";
+            input += `<input type="radio" name="question${adder}" data-value="3"> 3`+" ";            
+            input += `<input type="radio" name="question${adder}" data-value="4"> 4`+" ";
+            input += `<input type="radio" name="question${adder}" data-value="5"> 5`+" ";  
+            input += " "+"Strongly Agree";
 
         //create and append card head for each quesiton
           var cardHead = $(`<div>`);
           cardHead.addClass(`card-header`);
           cardHead.data(`data-question`, adder);
-          cardHead.html(`<strong>Question ${adder}:</strong> ${questions[i].Question}`);
+          cardHead.html(`<strong>Question ${adder}: ${questions[i]}</strong>`);
           $(`#questionDiv`).append(cardHead);
 
         //create and append card body for each question
@@ -114,6 +95,8 @@
         };
 
       };
+
+
 
       window.onload = function(){
 
