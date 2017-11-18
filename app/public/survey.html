@@ -105,12 +105,7 @@
       $("#submit").on("click", function(event) {
           
           event.preventDefault();
-
-          // Here we grab the form elements
-          var newUser = {
-            Name: $("#name").val().trim(),
-            Photo: $("#photo").val().trim(),
-            Answers: [
+          var Answers = [
               document.questionDiv.question1.value,
               document.questionDiv.question2.value,
               document.questionDiv.question3.value,
@@ -121,10 +116,18 @@
               document.questionDiv.question8.value,
               document.questionDiv.question9.value,
               document.questionDiv.question10.value
-            ]
+            ];
+
+          // Here we grab the form elements
+          var newUser = {
+            "Name": $("#name").val().trim(),
+            "Photo": $("#photo").val().trim(),
+            "Answers": ""
           };
+          
+          newUser.Answers = Answers;
         
-        console.log(newUser);
+          console.log(newUser);
 
         $.post("/api/friends", newUser,
           function(data) {
