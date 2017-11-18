@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- CSS File -->
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|PT+Serif" rel="stylesheet">
+  </head>
+  <body>
+
+    <!-- Friend Finder -->
+    <div class="jumbotron col-lg-12">
+    </div>
+    <!-- Div Text -->
+    <div id=text>
+        <h1 class="display-3 text-center">Friend Finder</h1>
+    </div>
+
+    <!-- Main Text Container -->
+    <div id="maintext-Container" class="container">
+
+      <!-- Question Div -->
+      <form id="questionDiv" name="questionDiv">
+
+        <!-- Question 1 -->
+        <div class="card-header">
+          <strong>
+          Do you like pina coladas?
+          </strong>
+        </div>
+
+        <!-- Answer Choices -->
+        <div class="card-body">
+            <input type="radio" name="question1" value="1">
+              1 (Strongly Agree)
+            <br>
+            <input type="radio" name="question1" value="2">
+              2 (Agree)
+            <br>
+            <input type="radio" name="question1" value="3">
+              3 (Neutral)
+            <br>
+            <input type="radio" name="question1" value="4">
+              4 (Disagree)
+            <br>
+            <input type="radio" name="question1" value="5">
+              5 (Strongly Disagree)
+        </div>
+
+      </form>
+
+
+      <!-- Footer + Done Button -->
+      <footer>
+        <button type="button" id="doneButton" class="btn btn-secondary btn-lg">Done!
+        </button>
+      </footer>
+
+    </div>
+
+
+  	<!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- JavaScript File -->
+  	<script type="text/javascript" src="../data/friends.js"></script>
+  </body>
+</html>

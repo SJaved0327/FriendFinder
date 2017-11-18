@@ -1,0 +1,63 @@
+/* Google Fonts */
+body{
+	font-family: 'PT Serif', serif;
+}
+
+h1{
+	font-family: 'Fredericka the Great', cursive;
+}
+
+h2{
+	font-weight: bolder;
+}
+
+/* Opacity + Images */
+.jumbotron{
+	background-color: #ffe6f3;
+	/*background-image: url(../images/NewYorkDrawnSkyline.gif);*/
+	opacity: 0.375;
+	height: 250px;
+	z-index: -1;
+}
+#text{
+	position:relative;
+	top: -225px;
+}
+
+#maintext-Container{
+	position:relative;
+	top: -190px;
+}
+
+
+/* Gen Styling */
+input{
+	margin: 5px;
+}
+
+.display-3{
+	padding-bottom: 20px;
+}
+
+#questionDiv{
+	/*visibility: hidden;*/
+	border-style: solid;
+	border-width: 4px;
+	border-color: gray;
+	border-style: double;
+	margin: 30px;
+	padding: 10px;
+}
+
+footer{
+	/*visibility: hidden;*/
+	padding-bottom: 15px;
+}
+
+#startTimer, footer{
+	text-align: center;
+}
+
+.card-header{
+	background-color: #FFF5FD;
+}
