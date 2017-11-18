@@ -25,8 +25,12 @@
 
       <!-- Question Div -->
       <form id="questionDiv" name="questionDiv">
-
-        
+        <h5>Name*</h5>
+        <input type="text" name="" id="name" class="form-control" required="">
+        <br>
+        <h5>Link to Photo Image*</h5>
+        <input type="text" name="" id="photo" class="form-control" required="">
+        <br>
 
       </form>
 
@@ -42,7 +46,85 @@
 
   	<!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <!-- JavaScript File -->
-  	<script type="text/javascript" src="../data/friends.js"></script>
+    <!-- JavaScript -->
+  	<script type="text/javascript">
+      var questions = 
+        [{
+          Question: `Your mind is always buzzing with unexplored ideas and plans.`
+        },
+        {
+          Question: `Generally speaking, you rely more on your experience than your imagination.`
+        },
+        {
+          Question: `You find it easy to stay relaxed and focused even when there is some pressure.`
+        },
+        {
+          Question: `You rarely do something just out of sheer curiosity.`
+        },
+        {
+          Question: `People can rarely upset you.`
+        },
+        {
+          Question: `In a discussion, truth should be more important than people’s sensitivities.`
+        },
+        {
+          Question: `You rarely get carried away by fantasies and ideas.`
+        },
+        {
+          Question: `You think that everyone’s views should be respected regardless of whether they are supported by facts or not.`
+        },
+        {
+          Question: `You feel more energetic after spending time with a group of people.`
+        }];
+
+      //create headers for survey questions
+      function renderQuestions(){
+
+        var input ="";
+
+        for (var i = 0; i < questions.length; i++){
+          
+          var adder = i+1;
+
+            input += `<input type="radio" name="question${adder}" data-value="1"> 1 Strongly Disagree`;
+            input += `<br>`;
+            input += `<input type="radio" name="question${adder}" data-value="2"> 2`;
+            input += `<br>`;
+            input += `<input type="radio" name="question${adder}" data-value="3"> 3`;
+            input += `<br>`;
+            input += `<input type="radio" name="question${adder}" data-value="4"> 4`;
+            input += `<br>`;
+            input += `<input type="radio" name="question${adder}" data-value="5"> 5  Strongly Agree`;
+            input += `<br>`;
+
+        //create and append card head for each quesiton
+          var cardHead = $(`<div>`);
+          cardHead.addClass(`card-header`);
+          cardHead.data(`data-question`, adder);
+          cardHead.html(`<strong>Question ${adder}:</strong> ${questions[i].Question}`);
+          $(`#questionDiv`).append(cardHead);
+
+        //create and append card body for each question
+          var cardBody = $(`<div>`);
+          cardBody.addClass(`card-body`);
+          cardBody.html(input);
+          $(`#questionDiv`).append(cardBody);
+          
+          input = "";
+        };
+
+      };
+
+      window.onload = function(){
+
+        renderQuestions();
+
+      };
+
+
+
+
+
+    </script>
   </body>
 </html>
