@@ -1,31 +1,11 @@
 var questions = 
 	[{
 		Question: `Do you like pina coladas?`,
-		"1":
-			{
-			value: `1`,
-			text: `Strongly Disagree`
-			}
-		"2":
-			{
-			value: `2`,
-			text: `Disagree`
-			}
-		"3":
-			{
-			value: `3`,
-			text: `Neutral`
-			}
-		"4":
-			{
-			value: `4`,
-			text: `Agree`
-			}
-		"5":
-			{
-			value: `5`,
-			text: `Strongly Agree`
-			}
+		StronglyDisagree: `1`,
+		Disagree: `2`,
+		Neutral: `3`,
+		Agree: `4`,
+		StronglyAgree: `5`
 	},
 	{
 		Question: `Do you like getting caught in the rain?`,
@@ -77,9 +57,9 @@ function renderQuestions(){
 		cardBody.addClass(`card-body`);
 
 		for (var j = 1; j < 5; j++){
+			
 
-
-
+			
 		}
 
 		cardBody.html(questions[i].Question);
